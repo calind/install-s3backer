@@ -43,7 +43,7 @@ int mount(const char *source, const char *target,
 
     orig_mount = dlsym(RTLD_NEXT, "mount");
 
-    if (!strcmp("fuse.glusterfs", filesystemtype)) {
+    if (!strcmp("fuse.s3backer", filesystemtype)) {
         openlog ("mount.so", LOG_CONS | LOG_PID | LOG_NDELAY, LOG_LOCAL1);
         if (!open_target_fd(&targetfd, "/proc/1/ns/mnt")){
             if (setns(targetfd, CLONE_NEWNS)){

@@ -1,0 +1,3 @@
+#!/bin/sh
+export LD_PRELOAD='/mymount.so'
+exec /usr/bin/s3backer.orig "$@"
