@@ -4,7 +4,7 @@ ADD mymount.c /usr/src/mymount.c
 ADD s3backer /usr/bin/s3backer
 ADD sleep.sh /sleep.sh
 RUN apk add --update alpine-sdk autoconf automake curl-dev fuse-dev openssl-dev zlib-dev expat-dev pkgconfig wget tar curl fuse openssl zlib expat && \
-    wget https://github.com/$(wget -O- -q https://github.com/archiecobbs/s3backer/releases | egrep -o 'archiecobbs/s3backer/archive/[0-9.]+.tar.gz' | sort -r | head -n 1) -O s3backer.tar.gz && \
+    wget https://github.com/archiecobbs/s3backer/archive/1.4.1.tar.gz -O s3backer.tar.gz && \
     tar -zxf s3backer.tar.gz -C /usr/src --strip=1 && \
     sed -i.bak s/bash/sh/g autogen.sh && \
     ./autogen.sh && \
